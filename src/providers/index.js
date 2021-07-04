@@ -1,13 +1,16 @@
 import React from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import MUIThemeProvider from "./MUIThemeProvider";
+import BooksProvider from "../components/Books/context/BooksContext";
 
 const queryClient = new QueryClient();
 
 const CustomProviders = ({ children }) => {
   return (
     <QueryClientProvider client={queryClient}>
-      <MUIThemeProvider>{children}</MUIThemeProvider>
+      <BooksProvider>
+        <MUIThemeProvider>{children}</MUIThemeProvider>
+      </BooksProvider>
     </QueryClientProvider>
   );
 };
