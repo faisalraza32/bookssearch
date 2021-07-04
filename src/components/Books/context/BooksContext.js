@@ -11,6 +11,12 @@ export const BOOKS_INITIAL_STATE = {
 };
 
 const searchBooks = async (term = "ReactJS", topRows = 25) => {
+  if (term.length === 0) {
+    return {
+      resultCount: 0,
+      results: [],
+    };
+  }
   const url = `${SEARCH_BOOKS_URL}&limit=${topRows}&term=${term}`;
   const response = await fetch(url);
   if (!response.ok) {
