@@ -15,7 +15,7 @@ Live app demo [iTunes Book Search](https://bookssearch.vercel.app/)
 
 To runs the app in the development mode.
 
-### `yearn`
+### `yarn`
 
 ### `yarn start`
 
