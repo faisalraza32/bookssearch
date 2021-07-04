@@ -3,14 +3,14 @@ import BooksReducer from "./BooksReducer";
 import { SET_SEARCH_TERM, SEARCH_BOOKS_URL } from "./BooksActions";
 import { useQuery } from "react-query";
 export const BOOKS_INITIAL_STATE = {
-  SearchTerm: "ReactJS",
+  SearchTerm: "React JS",
   Books: {
     resultCount: 0,
     results: [],
   },
 };
 
-const searchBooks = async (term = "ReactJS", topRows = 25) => {
+const searchBooks = async (term = "React JS", topRows = 25) => {
   if (term.length === 0) {
     return {
       resultCount: 0,
