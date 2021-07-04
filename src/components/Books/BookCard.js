@@ -41,6 +41,8 @@ const BookCard = ({ book }) => {
   const [open, setOpen] = useState(false);
 
   const trimDescription = (value) => {
+    if (!value) return null;
+
     if (value.length < 250) {
       return (
         <span

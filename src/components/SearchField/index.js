@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { InputBase } from "@material-ui/core";
 import SearchIcon from "@material-ui/icons/Search";
 import { fade, makeStyles } from "@material-ui/core/styles";
+import { BooksContext } from "../Books/context/BooksContext";
 
 const useStyles = makeStyles((theme) => ({
   search: {
@@ -47,8 +48,16 @@ const useStyles = makeStyles((theme) => ({
 
 const SearchField = () => {
   const classes = useStyles();
-
-  const handleChange = (e) => {};
+  const { setSearchTerm } = useContext(BooksContext);
+  let timer = null;
+  const handleChange = (e) => {
+    if (timer) {
+      clearTimeout(timer);
+    }
+    timer = setTimeout(() => {
+      setSearchTerm(e.target.value);
+    }, 1000);
+  };
 
   return (
     <div className={classes.search}>
