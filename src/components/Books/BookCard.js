@@ -10,6 +10,7 @@ import {
 import OpenIcon from "@material-ui/icons/OpenInNew";
 import { makeStyles } from "@material-ui/core/styles";
 import { red } from "@material-ui/core/colors";
+import ScrollDialog from "../ScrollDialog";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -97,6 +98,21 @@ const BookCard = ({ book }) => {
           {trimDescription(book.description)}
         </Typography>
       </CardContent>
+      {open && (
+        <ScrollDialog
+          Title="Publisher Description"
+          open={open}
+          handleClose={() => setOpen(false)}
+        >
+          <Typography variant="body1" component="span">
+            <span
+              dangerouslySetInnerHTML={{
+                __html: book.description.replace(/\n/g, "<br />"),
+              }}
+            />
+          </Typography>
+        </ScrollDialog>
+      )}
     </Card>
   );
 };
